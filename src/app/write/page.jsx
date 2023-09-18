@@ -13,9 +13,11 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
-import ReactQuill from "react-quill";
+
+import dynamic from "next/dynamic";
 
 const WritePage = () => {
+  const ReactQuill= dynamic(()=> import ('react-quill'), {ssr:false})
   const { status } = useSession();
   const router = useRouter();
 
