@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const getData = async () => {
-  const res = await fetch("https://brocodeblog-24f7d2a39eca.herokuapp.com/api/categories", {
+  const res = await fetch("https://brocodeblog.vercel.app/api/categories", {
     cache: "no-store",
   });
 

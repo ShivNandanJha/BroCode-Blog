@@ -4,7 +4,7 @@ import Image from "next/image";
 import Comments from "@/components/comments/Comments";
 
 const getData = async (slug) => {
-  const res = await fetch(`https://brocodeblog-24f7d2a39eca.herokuapp.com/api/posts/${slug}`, {
+  const res = await fetch(`https://brocodeblog.vercel.app/api/posts/${slug}`, {
     cache: "no-store",
   });
 

@@ -6,7 +6,7 @@ import Card from "../card/Card";
 
 const getData = async (page, cat) => {
   const res = await fetch(
-    `https://brocodeblog-24f7d2a39eca.herokuapp.com/api/posts?page=${page}&cat=${cat || ""}`,
+    `https://brocodeblog.vercel.app/api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
     }
