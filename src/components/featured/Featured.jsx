@@ -10,7 +10,7 @@ const Featured = () => {
         <b>
           Hey, <span className={styles.brocode}>Bro_CODE </span>here!
         </b>{" "}
-        Discover my latest projects, ideas and stories .
+        Discover my latest projects, ideas and stories
       </h1>
       <div className={styles.post}>
         <div className={styles.imgContainer}>
