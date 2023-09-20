@@ -6,7 +6,9 @@
   font-size: 96px;
   font-weight: 300;
 }
-
+.brocode{
+  color: rgb(93, 249, 93)
+}
 .post {
   margin-top: 60px;
   display: flex;
@@ -42,6 +44,7 @@
 }
 
 .button {
+  background-color:rgba(211, 211, 211, 0.593);
   padding: 16px 20px;
   border: none;
   border-radius: 5px;
