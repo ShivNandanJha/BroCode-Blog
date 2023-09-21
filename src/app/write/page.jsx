@@ -3,6 +3,8 @@
 import Image from "next/image";
 import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
+import ReactQuill from "react-quill";
+import "quill/dist/quill.core.css"; 
 import "react-quill/dist/quill.snow.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -13,8 +15,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
-import ReactQuill from "react-quill";
-import "quill/dist/quill.core.css"; 
+
 
 import dynamic from "next/dynamic";
 
