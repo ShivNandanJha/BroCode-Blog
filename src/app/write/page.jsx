@@ -3,7 +3,6 @@
 import Image from "next/image";
 import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
-import ReactQuill from "react-quill";
 import "quill/dist/quill.core.css"; 
 import "react-quill/dist/quill.snow.css";
 import { useRouter } from "next/navigation";
@@ -20,7 +19,7 @@ import { app } from "@/utils/firebase";
 import dynamic from "next/dynamic";
 
 const WritePage = () => {
-  // const ReactQuill= dynamic(()=> import ('react-quill'), {ssr:false})
+  const ReactQuill= dynamic(()=> import ('react-quill'), {ssr:false})
   const { status } = useSession();
   const router = useRouter();
 
