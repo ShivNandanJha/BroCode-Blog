@@ -3,7 +3,7 @@
 import Image from "next/image";
 import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
-import "react-quill/dist/quill.bubble.css";
+import "react-quill/dist/quill.snow.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import {
@@ -13,11 +13,13 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
+import ReactQuill from "react-quill";
+import "quill/dist/quill.core.css"; 
 
 import dynamic from "next/dynamic";
 
 const WritePage = () => {
-  const ReactQuill= dynamic(()=> import ('react-quill'), {ssr:false})
+  // const ReactQuill= dynamic(()=> import ('react-quill'), {ssr:false})
   const { status } = useSession();
   const router = useRouter();
 
@@ -96,6 +98,26 @@ const WritePage = () => {
       router.push(`/posts/${data.slug}`);
     }
   };
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6] }],
+      [{ font: [] }],
+      [{ size: ["small", "medium", "large", "huge"] }],
+      ["bold", "italic", "underline", "strike"], // toggled buttons
+      ["blockquote", "code-block"],
+      [{ script: "sub" }, { script: "super" }],
+      [{ list: "ordered" }, { list: "bullet" }],
+
+      [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+
+      [{ align: [] }],
+      [{ direction: "rtl" }],
+
+      ["link"],
+      ["image"],
+      ["clean"],
+    ],
+  };
 
   return (
     <div className={styles.container}>
@@ -105,7 +127,10 @@ const WritePage = () => {
         className={styles.input}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <select className={styles.select} onChange={(e) => setCatSlug(e.target.value)}>
+      <select
+        className={styles.select}
+        onChange={(e) => setCatSlug(e.target.value)}
+      >
         <option value="All">All</option>
         <option value="General">General</option>
         <option value="Hacks">Hacks</option>
@@ -140,10 +165,11 @@ const WritePage = () => {
         )}
         <ReactQuill
           className={styles.textArea}
-          theme="bubble"
+          theme="snow"
           value={value}
           onChange={setValue}
           placeholder="Tell your story..."
+          modules={modules}
         />
       </div>
       <button className={styles.publish} onClick={handleSubmit}>
