@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
+import ReactQuill from "react-quill";
 import "quill/dist/quill.core.css"; 
 import "react-quill/dist/quill.snow.css";
 import { useRouter } from "next/navigation";
@@ -19,8 +20,9 @@ import { app } from "@/utils/firebase";
 import dynamic from "next/dynamic";
 
 const WritePage = () => {
-  const ReactQuill= dynamic(()=> import ('react-quill'), {ssr:false})
+  // const ReactQuill = dynamic(()=> import ('react-quill'), {ssr:false})
   const { status } = useSession();
+  const [ReactQuill, setReactQuill] = useState(null);
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
@@ -29,7 +31,14 @@ const WritePage = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
-
+  useEffect(() => {
+    // Check if we are in a browser environment
+    if (typeof window !== "undefined") {
+      import("react-quill").then((module) => {
+        setReactQuill(module.default);
+      });
+    }
+  }, []);
   useEffect(() => {
     const storage = getStorage(app);
     const upload = () => {
