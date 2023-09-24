@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Bro_CODE blog",
-  description: "The best blog app!",
+  description: "Unleash your creativity, share your thoughts, and connect with like-minded individuals with Bro_CODE, the premier blogging app for the modern storyteller.",
 };
 
 export default function RootLayout({ children }) {
