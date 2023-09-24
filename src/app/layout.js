@@ -9,7 +9,7 @@ import AuthProvider from "@/providers/AuthProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Bro_CODE blog",
+  title      : "Bro_CODE blog | Shivnandan Jha",
   description: "Unleash your creativity, share your thoughts, and connect with like-minded individuals with Bro_CODE, the premier blogging app for the modern storyteller.",
 };
 
